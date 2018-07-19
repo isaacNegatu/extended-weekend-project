@@ -1,0 +1,25 @@
+<h2>dashboard</h2>
+<div ng-repeat="list in vm.petList">
+<div class="container">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Owner</th>
+                <th>Pet</th>
+                <th>Breed</th>
+                <th>Color</th>
+                <th>Checked In?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{list.owner}}</td>
+            <td> {{list.pet}}</td>
+            <td> {{list.breed}}</td>
+            <td>{{list.color}}</td>
+            <td>{{list.checkedIn}}</td>
+        </tbody>
+
+    </table>    
+
+</div>
+</div>
