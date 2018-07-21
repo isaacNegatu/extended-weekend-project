@@ -1,14 +1,18 @@
 <h2>dashboard</h2>
+
 <div>
-    <input type="text" placeholder="Pet Name">
-    <input type="text" placeholder="Pet Color">
-    <input type="text" placeholder="Pet Breed">
-    <select>
+    <h3>Add Pet</h3>
+    <input ng-model="vm.newPet.pet"  type="text" placeholder="Pet Name">
+    <input ng-model="vm.newPet.color"  type="text" placeholder="Pet Color">
+    <input ng-model="vm.newPet.breed"  type="text" placeholder="Pet Breed">
+    <select ng-model="vm.newPet.owner_id">
         <option disable selected value>Owner Name</option>
-        <option>{{}}</option>
+        <option ng-repeat="owner in vm.ownerList.list" value="{{owner.id}}">{{owner.name}}</option>
     </select>
+    <button ng-click="vm.addPet(vm.newPet)">Submit</button>
 </div>
-<div ng-repeat="list in vm.petList">
+<h3>History</h3>
+<div ng-repeat="list in vm.petList.list">
 <div class="container">
     <table class="table table-hover table-striped">
         <thead>
@@ -17,18 +21,20 @@
                 <th>Pet</th>
                 <th>Breed</th>
                 <th>Color</th>
-                <th>Checked In?</th>
+                <th>Checked In</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <td>{{list.owner}}</td>
-            <td> {{list.pet}}</td>
-            <td> {{list.breed}}</td>
+            <td>{{list.name}}</td>
+            <td>{{list.pet}}</td>
+            <td>{{list.breed}}</td>
             <td>{{list.color}}</td>
             <td>{{list.checkedIn}}</td>
+            <td>Delete | Check In</td>
         </tbody>
 
-    </table>    
+    </table>   
 
 </div>
 </div>

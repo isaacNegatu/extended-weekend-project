@@ -2,12 +2,13 @@ CREATE DATABASE "pet_hotel"
 
 CREATE TABLE "pets" (
     "id" SERIAL PRIMARY KEY,
-    "owner" VARCHAR(25) NOT NULL,
-    "pet" VARCHAR (25) NOT NULL,
+    "owner_id" INT REFERENCES "owners",
+    "pet" VARCHAR (25),
     "breed" VARCHAR(25),
-    "color" VARCHAR (25) NOT NULL,
-    "checkedIn" DATE NOT NULL
+    "color" VARCHAR (25),
+    "checkedIn" DATE
 );
+
 
 INSERT INTO "pets" ("owner", "pet", "breed", "color", "checkedIn")
 VALUES ('Ross', 'Scamp', 'Dalmatian', 'white', '7/15/18'),
