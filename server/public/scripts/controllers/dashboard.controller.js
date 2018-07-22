@@ -21,6 +21,8 @@ app.controller('DashboardController', ['PetHotelService','$http', function(PetHo
     };
 
     self.removePet = function (petGuestID) {
+        console.log('Delete controller');
+        
         PetHotelService.removePet(petGuestID);
     };
 

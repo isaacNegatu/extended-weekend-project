@@ -46,6 +46,8 @@ self.addPet = function(newPet) {
 };
 
 self.removePet = function (petId) {
+    console.log('delete service');
+    
     $http({
         method: 'DELETE',
         url:`hotel/pets/${petId}`,
