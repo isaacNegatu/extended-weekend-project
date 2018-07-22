@@ -35,7 +35,7 @@ self.addPet = function(newPet) {
     .then(function(response){
         console.log('addPet', response);
         self.getPets();
-        // self.newPet.owner = '';
+        // newPet.owner = null;
         newPet.pet = null;
         newPet.breed = null;
         newPet.color = null;
@@ -50,10 +50,11 @@ self.removePet = function (petId) {
     
     $http({
         method: 'DELETE',
-        url:`hotel/pets/${petId}`,
+        url:`pets/${petId}`,
     })
     .then((response) => {
         self.getPets();
+        self.getOwners();
     })
     .catch((error) => {
         console.log('Error making request', error);
