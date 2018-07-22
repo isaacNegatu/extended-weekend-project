@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 
 router.get('/pets', (req, res) => {
     console.log('Got to hotel pets GET');
-    pool.query('SELECT * FROM "pets" JOIN "owners" ON "pets".owner_id = "owners".id;')
+    pool.query('SELECT * FROM "pets" JOIN "owners" ON "pets"."owner_id" = "owners"."id";')
         .then((results) => {
             console.log('Here are the GET results', results);
             res.send(results.rows);
@@ -46,7 +46,6 @@ router.post('/pets', (req, res) => {
 });
 
 
-
 router.post('/owners', (req, res) => {
     console.log('POST /owners', req.body);
 
@@ -62,6 +61,19 @@ router.post('/owners', (req, res) => {
             console.log('Error from owners POST', errorFromPG);
             res.sendStatus(500);
         });
+});
+
+router.delete('pets/:id', (req, res) => {
+    console.log('Delete /pets');
+    const petGuestID = req.params.id;
+    pool.query('DELETE FROM "pets" WHERE "id"=$1', [petGuestID])
+    .then((result) => {
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log('Error deleting pet', error);
+        res.sendStatus(500);
+    });
 });
 
 module.exports = router;

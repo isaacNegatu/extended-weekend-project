@@ -6,20 +6,20 @@
 
 <h3>Owners</h3>
 <div ng-repeat="list in vm.ownerList.list">
-        <div class="container">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>Owner</th>
-                        <th>Number of Pets</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+    <div class="container">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Owner</th>
+                    <th>Number of Pets</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
                 <tbody>
                     <td>{{list.name}}</td>
                     <td>{{list.numberOfPets}}</td>
                     <td>Delete</td>
                 </tbody>
-        
             </table>    
-        
+    </div>
+</div>

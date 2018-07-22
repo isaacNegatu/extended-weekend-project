@@ -8,19 +8,19 @@ app.service('PetHotelService', ['$http', function ($http) {
     self.ownerList = { list: [] };
 
 //get pets from inputs
-    self.getPets = function () {
-        $http({
-            method : 'GET',
-            url: '/hotel/pets'
-        })
-        .then(function(response) {
-            console.log('pets GET', response.data);
-            self.petList.list = response.data;
-        })
-        .catch(function(error) {
-            console.log('pets GET error', error);
-        });
-    };
+self.getPets = function () {
+    $http({
+        method : 'GET',
+        url: '/hotel/pets'
+    })
+    .then(function(response) {
+        console.log('pets GET', response.data);
+        self.petList.list = response.data;
+    })
+    .catch(function(error) {
+        console.log('pets GET error', error);
+    });
+};
 
 
 //add pet from inputs
@@ -42,6 +42,19 @@ self.addPet = function(newPet) {
     })
     .catch(function(error){
         console.log('addPet error', error);
+    });
+};
+
+self.removePet = function (petId) {
+    $http({
+        method: 'DELETE',
+        url:`hotel/pets/${petId}`,
+    })
+    .then((response) => {
+        self.getPets();
+    })
+    .catch((error) => {
+        console.log('Error making request', error);
     });
 };
 

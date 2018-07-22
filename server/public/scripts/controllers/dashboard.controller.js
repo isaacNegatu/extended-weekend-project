@@ -20,6 +20,9 @@ app.controller('DashboardController', ['PetHotelService','$http', function(PetHo
         PetHotelService.addPet(newPet);
     };
 
+    self.removePet = function (petGuestID) {
+        PetHotelService.removePet(petGuestID);
+    };
 
 
 }]);

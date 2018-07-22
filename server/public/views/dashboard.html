@@ -13,7 +13,6 @@
 </div>
 <h3>History</h3>
 <div ng-repeat="list in vm.petList.list">
-<div class="container">
     <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -31,10 +30,10 @@
             <td>{{list.breed}}</td>
             <td>{{list.color}}</td>
             <td>{{list.checkedIn}}</td>
-            <td>Delete | Check In</td>
+            <td>
+                <button ng-click="vm.removePet(list.owner_id)">Delete</button>
+                <button>Check In</button>
+            </td>
         </tbody>
-
     </table>   
-
-</div>
 </div>
